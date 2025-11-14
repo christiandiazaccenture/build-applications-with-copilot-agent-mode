@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 export default function Activities() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState(null);
-  const codespace = process.env.REACT_APP_CODESPACE_NAME || '';
-  const base = codespace ? `https://${codespace}-8000.app.github.dev/api/` : '/api/';
+  const codespace = process.env.REACT_APP_CODESPACE_NAME;
+  const base = `https://${codespace}-8000.app.github.dev/api/`;
   const endpoint = `${base}activities/`;
 
   useEffect(() => {
