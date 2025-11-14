@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.card { margin-bottom: 1rem; }
+
+/* Modal overlay fix when using controlled show via state */
+.modal.show.d-block { background: rgba(0,0,0,0.3); }

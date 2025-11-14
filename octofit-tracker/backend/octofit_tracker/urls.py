@@ -35,7 +35,8 @@ import os
 def api_root(request, format=None):
     codespace_name = os.environ.get('CODESPACE_NAME')
     if codespace_name:
-        base_url = f"https://{codespace_name}-8000.app.github.dev/api/"
+        # Use HTTP for the Codespace preview URL to avoid certificate issues
+        base_url = f"http://{codespace_name}-8000.app.github.dev/api/"
     else:
         # fallback to localhost for local development
         base_url = "http://localhost:8000/api/"

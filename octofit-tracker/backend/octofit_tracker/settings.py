@@ -32,6 +32,8 @@ codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
     ALLOWED_HOSTS = [
         f"{codespace_name}-8000.app.github.dev",
+        f"{codespace_name}.githubpreview.dev",
+        'testserver',
         'localhost',
         '127.0.0.1',
     ]
@@ -147,3 +149,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# For development/testing in Codespaces we may bypass a custom User model conflict
+# by setting SKIP_CUSTOM_USER=1 in the environment. This forces use of the
+# default Django auth.User when present.
+if os.environ.get('SKIP_CUSTOM_USER'):
+    AUTH_USER_MODEL = 'auth.User'
