@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function Activities() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState(null);
-  const codespace = process.env.REACT_APP_CODESPACE_NAME;
-  const base = `https://${codespace}-8000.app.github.dev/api/`;
-  const endpoint = `${base}activities/`;
+  const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`;
 
   useEffect(() => {
     fetch(endpoint)

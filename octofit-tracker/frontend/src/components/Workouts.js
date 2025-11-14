@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function Workouts() {
   const [items, setItems] = useState([]);
-  const codespace = process.env.REACT_APP_CODESPACE_NAME || '';
-  const base = codespace ? `https://${codespace}-8000.app.github.dev/api/` : '/api/';
-  const endpoint = `${base}workouts/`;
+  const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`;
 
   useEffect(() => {
     fetch(endpoint)

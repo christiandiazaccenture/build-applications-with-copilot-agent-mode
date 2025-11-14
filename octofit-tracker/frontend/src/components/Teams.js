@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function Teams() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
-  const codespace = process.env.REACT_APP_CODESPACE_NAME || '';
-  const base = codespace ? `https://${codespace}-8000.app.github.dev/api/` : '/api/';
-  const endpoint = `${base}teams/`;
+  const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/`;
 
   useEffect(() => {
     fetch(endpoint)
